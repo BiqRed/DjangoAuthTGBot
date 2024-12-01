@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import TelegramUser, LoginToken
 
-# Register your models here.
+admin.site.register(TelegramUser)
+admin.site.register(LoginToken)

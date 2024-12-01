@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход через Telegram</title>
+    <script>
+        // Функция для проверки авторизации каждые 5 секунд
+        setInterval(function(){
+            fetch("{% url 'home' %}")
+                .then(response => response.text())
+                .then(data => {
+                    if (data.includes("Авторизованы через Telegram")) {
+                        window.location.href = "{% url 'home' %}";
+                    }
+                });
+        }, 5000);
+    </script>
+</head>
+<body>
+    <h1>Вход через Telegram</h1>
+    <a href="{{ telegram_link }}">Нажмите здесь, чтобы авторизоваться через Telegram</a>
+    <p>После авторизации вернитесь на эту страницу.</p>
+</body>
+</html>

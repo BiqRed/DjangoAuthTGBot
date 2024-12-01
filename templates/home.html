@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <script>
+        // Функция для обновления страницы каждые 5 секунд
+        setInterval(function(){
+            window.location.reload();
+        }, 5000);
+    </script>
+</head>
+<body>
+    <h1>Добро пожаловать, {{ user.username }}!</h1>
+    {% if telegram_username %}
+        <p>Авторизованы через Telegram: {{ telegram_username }}</p>
+    {% else %}
+        <p>Вы не авторизованы через Telegram.</p>
+        <a href="{% url 'login_with_telegram' %}">Войти через Telegram</a>
+    {% endif %}
+    <br>
+    <a href="{% url 'logout' %}">Выйти</a>
+</body>
+</html>

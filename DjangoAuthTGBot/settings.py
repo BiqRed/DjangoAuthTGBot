@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=85&gt=$&=71m71!3m%-k4uh(i&^o2*wvp62uceyu(_db37_op
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'auth_app',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +117,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# URL перенаправления после входа
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# Telegram Bot Token (замените на свой токен)
+TELEGRAM_BOT_TOKEN = 'BOT TOKEN'
+
+SITE_URL = 'https://your-domain.com'  # Замените на ваш домен
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
